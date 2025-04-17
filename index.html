@@ -1,795 +1,343 @@
-
 <!DOCTYPE html>
-
-<html lang="si">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>XTREME AVIATOR PREDICTOR PRO : 1XBET</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<style>
-  body {
-    margin: 0;
-    background: #0d0d0d;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    text-align: center;
-  }
-  .header {
-    background: linear-gradient(135deg, #e60000, #990000);
-    padding: 20px;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 0 10px red;
-  }
-  .header h1 {
-    margin: 0;
-    font-size: 28px;
-    color: #fff;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-  }
-  .info {
-    margin: 20px 0;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .glow-text {
-    color: white;
-    text-shadow: 0 0 2px #00ccff, 0 0 4px #00ccff, 0 0 6px #00ccff;
-  }
-  .orbitron-text {
-    font-family: 'Orbitron', sans-serif;
-  }
-  .circle {
-    margin: 30px auto;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, #330000, #0d0d0d);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    border: 4px solid white;
-    box-shadow: 0 0 25px 10px red;
-  }
-  .signal-box {
-    margin: 20px auto;
-    padding: 15px 25px;
-    border-radius: 15px;
-    width: fit-content;
-    font-size: 22px;
-    color: #ffffff;
-    background-color: #000000;
-    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
-    border: 2px solid #00ffff;
-    font-weight: bold;
-  }
-  .buttons {
-    margin: 30px auto;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  .buttons a {
-    text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 15px;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.3s;
-    background-color: #1a1a1a;
-  }
-  .buttons .whatsapp {
-    color: #25D366;
-    box-shadow: 0 0 15px #25D366;
-  }
-  .buttons .telegram {
-    color: #00ffff;
-    box-shadow: 0 0 15px #00ffff;
-  }
-  .buttons a:hover {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-  footer {
-    margin-top: 50px;
-    font-size: 14px;
-    color: #aaa;
-  }
-  footer a {
-    color: #aaa;
-    text-decoration: none;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-  @keyframes flash {
-    0% { opacity: 1; }
-    50% { opacity: 0.1; }
-    100% { opacity: 1; }
-  }
-  .flash {
-    animation: flash 1s infinite;
-  }
-  .next-signal-dots::after {
-    content: "";
-    animation: dots 1s steps(4, end) infinite;
-  }
-  .green-glow {
-    color: #00ff00 !important;
-    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XTREME AVIATOR PREDICTOR PRO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding-top: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin: 40px 0 15px 0;
+      padding: 0 10px;
+    }
+
+    .header h2 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: #ff4444;
+      text-transform: uppercase;
+      text-shadow: 0 0 5px #ff2222, 0 0 15px #ff0000, 0 0 25px #ff0000;
+      border: 3px solid #ff0000;
+      padding: 16px 16px;
+      border-radius: 14px;
+      box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+      display: inline-block;
+      max-width: 90vw;
+      word-wrap: break-word;
+    }
+
+    .clock {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .arrows {
+      margin: 12px 0;
+      font-size: 1.8rem;
+      color: red;
+      text-align: center;
+      animation: bounceTogether 1s infinite;
+    }
+
+    @keyframes bounceTogether {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(10px); }
+    }
+
+    .date {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #999;
+    }
+
+    .circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 6px solid white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .time-label {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .glow {
+      box-shadow:
+        0 0 15px #00ff00,
+        0 0 30px #00ff00,
+        0 0 45px #00ff00;
+      animation: pulse-green 1.5s infinite;
+    }
+
+    .glow .time-label {
+      color: #00ff00;
+    }
+
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 15px #00ff00; }
+      50% { box-shadow: 0 0 45px #00ff00; }
+      100% { box-shadow: 0 0 15px #00ff00; }
+    }
+
+    .inactive-glow {
+      border-color: white;
+      box-shadow:
+        0 0 15px #ff0000,
+        0 0 30px #ff0000,
+        0 0 45px #ff0000,
+        0 0 60px #ff0000;
+      animation: pulse-red 1.8s infinite;
+    }
+
+    @keyframes pulse-red {
+      0% { box-shadow: 0 0 20px #ff0000; }
+      50% { box-shadow: 0 0 60px #ff0000; }
+      100% { box-shadow: 0 0 20px #ff0000; }
+    }
+
+    .offer-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .offer-box {
+      display: inline-block;
+      padding: 15px 25px;
+      background: black;
+      border: 2px solid #00ffff;
+      color: white;
+      font-size: 1.4rem;
+      border-radius: 16px;
+      box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      margin-bottom: 20px;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .btn-group a button {
+      padding: 16px 36px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 16px;
+      border: 2px solid white;
+      cursor: pointer;
+      transition: 0.3s ease;
+      color: white;
+    }
+
+    .btn-group a.whatsapp button {
+      background-color: #25D366;
+      box-shadow: 0 0 20px #25D366;
+    }
+
+    .btn-group a.telegram button {
+      background-color: #0088cc;
+      box-shadow: 0 0 20px #0088cc;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #888;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .loading::after {
+      content: "";
+      animation: dots 1s steps(3, end) infinite;
+    }
+
+    @keyframes dots {
+      0% { content: ""; }
+      33% { content: "."; }
+      66% { content: ".."; }
+      100% { content: "..."; }
+    }
+  </style>
 </head>
 <body>
-<style>
-  #security-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-  #security-overlay input {
-    padding: 10px;
-    font-size: 16px;
-    width: 300px;
-    margin: 10px;
-  }
-  #security-overlay button {
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-  #security-error {
-    color: red;
-    margin-top: 10px;
-  }
-</style>
-<style>
-  #security-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #000000, #1a1a1a);
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Segoe UI', sans-serif;
-    color: #fff;
-  }
-  #security-box {
-    background: #111;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px #ff0040;
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-  }
-  #security-box h2 {
-    margin-bottom: 20px;
-    font-size: 26px;
-  }
-  #security-code {
-    padding: 12px;
-    font-size: 18px;
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-  #security-box button {
-    background-color: #ff0040;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  #security-box button:hover {
-    background-color: #e60036;
-  }
-  #security-error {
-    color: red;
-    margin-top: 10px;
-  }
-  #security-success {
-    color: #00ff99;
-    font-size: 18px;
-    margin-top: 15px;
-    display: none;
-    animation: fadeIn 1s ease forwards;
-  }
-  @keyframes fadeIn {
-    from {{ opacity: 0; transform: scale(0.95); }}
-    to {{ opacity: 1; transform: scale(1); }}
-  }
-</style>
-<style>
-  #security-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, #000000, #1a1a1a);
-    z-index: 9999;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    font-family: 'Segoe UI', sans-serif; color: #fff;
-  }
-  #security-box {
-    background: #111; padding: 40px;
-    border-radius: 12px; text-align: center;
-    box-shadow: 0 0 20px #ff0040;
-    max-width: 400px; width: 90%;
-  }
-  #security-box h1 {
-    margin-bottom: 20px;
-    font-size: 22px;
-  }
-  .segment-input {
-    width: 60px; padding: 12px; font-size: 16px;
-    margin: 0 5px; text-align: center;
-    border: none; border-radius: 6px;
-  }
-  .segment-wrapper {
-    display: flex; justify-content: center; margin-bottom: 15px;
-  }
-  #security-box button {
-    background-color: #ff0040; color: white;
-    border: none; padding: 10px 24px;
-    border-radius: 8px; font-size: 16px;
-    cursor: pointer;
-  }
-  #security-box button:hover {
-    background-color: #e60036;
-  }
-  #security-error { color: red; margin-top: 10px; }
-  #security-success {
-    color: #00ff99; font-size: 18px;
-    margin-top: 15px; display: none;
-    animation: fadeIn 1s ease forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
-<style>
-  #security-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, #000000, #1a1a1a);
-    z-index: 9999;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    font-family: 'Segoe UI', sans-serif; color: #fff;
-  }
-  #security-box {
-    background: #111; padding: 40px;
-    border-radius: 12px; text-align: center;
-    box-shadow: 0 0 20px #ff0040;
-    max-width: 400px; width: 90%;
-  }
-  #security-box h1 {
-    margin-bottom: 20px;
-    font-size: 22px;
-  }
-  #security-code {
-    padding: 12px; font-size: 18px;
-    width: 90%; max-width: 300px;
-    border: none; border-radius: 8px;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-  #security-box button {
-    background-color: #ff0040; color: white;
-    border: none; padding: 10px 24px;
-    border-radius: 8px; font-size: 16px;
-    cursor: pointer;
-  }
-  #security-box button:hover {
-    background-color: #e60036;
-  }
-  #security-error { color: red; margin-top: 10px; }
-  #security-success {
-    color: #00ff99; font-size: 18px;
-    margin-top: 15px; display: none;
-    animation: fadeIn 1s ease forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
-<style>
-  #security-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, #000000, #1a1a1a);
-    z-index: 9999;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    font-family: 'Segoe UI', sans-serif; color: #fff;
-  }
-  #security-box {
-    background: #111; padding: 40px;
-    border-radius: 12px; text-align: center;
-    box-shadow: 0 0 20px #ff0040;
-    max-width: 400px; width: 90%;
-  }
-  #security-box h1 {
-    margin-bottom: 20px;
-    font-size: 22px;
-  }
-  #security-code {
-    padding: 12px; font-size: 18px;
-    width: 90%; max-width: 300px;
-    border: none; border-radius: 8px;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-  #security-box button {
-    background-color: #ff0040; color: white;
-    border: none; padding: 10px 24px;
-    border-radius: 8px; font-size: 16px;
-    cursor: pointer;
-  }
-  #security-box button:hover {
-    background-color: #e60036;
-  }
-  #security-error { color: red; margin-top: 10px; }
-  #security-success {
-    color: #00ff99; font-size: 18px;
-    margin-top: 15px; display: none;
-    animation: fadeIn 1s ease forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  <div class="header">
+    <h2>XTREME PREDICTOR PRO : 1XBET</h2>
+  </div>
 
-  #security-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, #121212, #1f1f1f);
-    z-index: 9999;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-  }
+  <div class="clock" id="clock">Live Time: --:--:--</div>
+  <div class="date" id="date">Date: --</div>
 
-  #security-box {
-    background: #1c1c1c;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 0 30px rgba(255, 0, 80, 0.6);
-    max-width: 420px; width: 90%;
-    text-align: center;
-  }
+  <div class="arrows">&lt;&lt;&lt;</div>
 
-  #security-box h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #ff0040;
-  }
+  <div class="circle" id="signal">
+    <div class="time-label" id="timeLabel"><span id="loadingText">Loading...</span></div>
+  </div>
 
-  #security-code {
-    padding: 14px;
-    font-size: 16px;
-    width: 100%;
-    max-width: 320px;
-    border: 1px solid #444;
-    background: #000;
-    color: #fff;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    outline: none;
-    text-align: center;
-  }
+  <div class="arrows">&gt;&gt;&gt;</div>
 
-  #security-box button {
-    background: linear-gradient(90deg, #ff0040, #ff3366);
-    border: none;
-    color: white;
-    padding: 12px 28px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
+  <div class="offer-section">
+    <div class="offer-box" id="offerBox">CASH OUT : 5× | 6× | 7×</div>
+    <div class="btn-group">
+      <a href="https://wa.me/94765432456" target="_blank" class="whatsapp">
+        <button>WhatsApp</button>
+      </a>
+      <a href="https://t.me/yourchannel" target="_blank" class="telegram">
+        <button>Telegram</button>
+      </a>
+    </div>
+  </div>
 
-  #security-box button:hover {
-    opacity: 0.9;
-    transform: scale(1.03);
-  }
+  <div class="footer">POWERED BY XTREME PREDICTOR</div>
 
-  #security-error {
-    color: #ff4d4d;
-    margin-top: 10px;
-    font-size: 14px;
-  }
+  <script>
+    const patternMinutes = [
+      [2, 3], [6, 6], [8, 9], [14, 15], [20, 22],
+      [28, 30], [36, 36], [38, 39], [41, 43], [46, 46], [55, 57]
+    ];
+    const signal = document.getElementById("signal");
+    const clock = document.getElementById("clock");
+    const dateEl = document.getElementById("date");
+    const timeLabel = document.getElementById("loadingText");
+    const offerBox = document.getElementById("offerBox");
 
-  #security-success {
-    color: #00ff99;
-    font-size: 16px;
-    margin-top: 15px;
-    display: none;
-    animation: fadeIn 1s ease forwards;
-  }
+    let lastDisplayedText = "";
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
-
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-  #security-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, #121212, #1f1f1f);
-    z-index: 9999;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-  }
-
-  @media screen and (max-width: 480px) { #security-box { padding: 30px 20px; }}
-  #security-box {
-    background: #1c1c1c;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 0 30px rgba(255, 0, 80, 0.6);
-    max-width: 420px; width: 90%;
-    text-align: center;
-  }
-
-  #security-box h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #ff0040;
-  }
-
-  #security-code {
-    padding: 14px;
-    font-size: 16px;
-    width: 100%;
-    max-width: 320px;
-    border: 1px solid #444;
-    background: #000;
-    color: #fff;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    outline: none;
-    text-align: center;
-  }
-
-  #security-box button {
-    background: linear-gradient(90deg, #ff0040, #ff3366);
-    border: none;
-    color: white;
-    padding: 12px 28px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-
-  #security-box button:hover {
-    opacity: 0.9;
-    transform: scale(1.03);
-  }
-
-  #security-error {
-    color: #ff4d4d;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-
-  #security-success {
-    color: #00ff99;
-    font-size: 16px;
-    margin-top: 15px;
-    display: none;
-    animation: fadeIn 1s ease forwards;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
-<div id="security-overlay">
-<div id="security-box">
-<h1>Xtreme Aviator Predictor Pro : 1xbet</h1>
-<input id="security-code" placeholder="Enter Access Code" type="text"/>
-<br/>
-<button onclick="checkSecurityCode()">Unlock</button>
-<div id="security-error"></div>
-<div id="security-success">Access Granted! Please wait...</div>
-</div>
-</div>
-<script>
-  const accessCode = "Ax9K-me$Q-%!7z-84&g-Rf2@";
-  function checkSecurityCode() {
-    const input = document.getElementById("security-code").value.trim();
-    const errorBox = document.getElementById("security-error");
-    const successMsg = document.getElementById("security-success");
-
-    if (input === accessCode) {
-      errorBox.textContent = "";
-      successMsg.style.display = "block";
-      setTimeout(() => {
-        document.getElementById("security-overlay").style.display = "none";
-      }, 1500);
-    } else {
-      errorBox.textContent = "Invalid Code. Please try again.";
-      successMsg.style.display = "none";
+    function pad(n) {
+      return n.toString().padStart(2, '0');
     }
-  }
-</script>
 
-<script>
-  const accessCode = "Ax9K-me$Q-%!7z-84&g-Rf2@";
-  function checkSecurityCode() {
-    const input = document.getElementById("security-code").value.trim();
-    const errorBox = document.getElementById("security-error");
-    const successMsg = document.getElementById("security-success");
-
-    if (input === accessCode) {
-      errorBox.textContent = "";
-      successMsg.style.display = "block";
-      setTimeout(() => {
-        document.getElementById("security-overlay").style.display = "none";
-      }, 1500);
-    } else {
-      errorBox.textContent = "Invalid Code. Please try again.";
-      successMsg.style.display = "none";
+    function formatClock(date) {
+      let hours = date.getHours();
+      const minutes = pad(date.getMinutes());
+      const seconds = pad(date.getSeconds());
+      const ampm = hours >= 12 ? "PM" : "AM";
+      hours = hours % 12 || 12;
+      return `Live Time: ${pad(hours)}:${minutes}:${seconds} ${ampm}`;
     }
-  }
-</script>
-<script>
-  const accessCode = "Ax9K-me$Q-%!7z-84&g-Rf2@";
-  function checkSecurityCode() {
-    const input = document.getElementById("security-code").value.trim();
-    const errorBox = document.getElementById("security-error");
-    const successMsg = document.getElementById("security-success");
 
-    if (input === accessCode) {
-      errorBox.textContent = "";
-      successMsg.style.display = "block";
-      setTimeout(() => {
-        document.getElementById("security-overlay").style.display = "none";
-      }, 1500);
-    } else {
-      errorBox.textContent = "Invalid Code. Please try again.";
-      successMsg.style.display = "none";
+    function formatDate(date) {
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      const months = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+      return `Date: ${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
     }
-  }
-</script>
-<script>
-  const accessCode = "Ax9K-me$Q-%!7z-84&g-Rf2@";
-  function checkSecurityCode() {
-    const input = document.getElementById("security-code").value.trim();
-    const errorBox = document.getElementById("security-error");
-    const successMsg = document.getElementById("security-success");
 
-    if (input === accessCode) {
-      errorBox.textContent = "";
-      successMsg.style.display = "block";
-      setTimeout(() => {
-        document.getElementById("security-overlay").style.display = "none";
-      }, 1500);
-    } else {
-      errorBox.textContent = "Invalid Code. Please try again.";
-      successMsg.style.display = "none";
+    function getSignalRanges(hour) {
+      return patternMinutes.map(([start, end]) => {
+        const from = new Date();
+        from.setHours(hour, start, 0, 0);
+        const to = new Date();
+        to.setHours(hour, end + 1, 0, 0);
+        const label = start === end ? `${pad(hour)}:${pad(start)}` : `${pad(hour)}:${pad(start)} / ${pad(hour)}:${pad(end)}`;
+        return { from, to, label };
+      });
     }
-  }
-</script>
-<script>
-  const correct = "Ax9K-me$Q-%!7z-84&g-Rf2@";
 
-  function checkCode() {
-    const parts = [1,2,3,4,5].map(i => document.getElementById('seg' + i).value.trim());
-    const joined = parts.join('-');
-    const errorMsg = document.getElementById("security-error");
-    const successMsg = document.getElementById("security-success");
+    function animateTextChange(newText) {
+      if (lastDisplayedText === newText) return;
 
-    if (joined === correct) {
-      errorMsg.textContent = "";
-      successMsg.style.display = "block";
+      offerBox.innerText = newText;
+      offerBox.style.transition = "none";
+      offerBox.style.opacity = "0.6";
+
       setTimeout(() => {
-        document.getElementById("security-overlay").style.display = "none";
-      }, 1500);
-    } else {
-      errorMsg.textContent = "Invalid Code. Please try again.";
-      successMsg.style.display = "none";
-    }
-  }
+        offerBox.style.transition = "opacity 0.3s ease-in-out";
+        offerBox.style.opacity = "1";
+      }, 10);
 
-  // Auto jump to next field
-  document.addEventListener("DOMContentLoaded", () => {
-    const inputs = Array.from(document.querySelectorAll(".segment-input"));
-    inputs.forEach((input, index) => {
-      input.addEventListener("input", () => {
-        if (input.value.length === 4 && index < inputs.length - 1) {
-          inputs[index + 1].focus();
+      lastDisplayedText = newText;
+    }
+
+    function update() {
+      const now = new Date();
+      clock.textContent = formatClock(now);
+      dateEl.textContent = formatDate(now);
+
+      const hour = now.getHours();
+      const currentRanges = getSignalRanges(hour);
+      const nextHourRanges = getSignalRanges((hour + 1) % 24);
+      const allRanges = [...currentRanges, ...nextHourRanges];
+
+      let active = null;
+      let next = null;
+
+      for (let i = 0; i < allRanges.length; i++) {
+        const range = allRanges[i];
+        if (now >= range.from && now < range.to) {
+          active = range;
+          next = allRanges[i + 1] || allRanges[0];
+          break;
         }
-      });
-    });
-  });
-</script>
-<script>
-  const accessCode = "Ax9K-me$Q-%!7z-84&g-Rf2@";
-  function checkSecurityCode() {
-    const input = document.getElementById("security-code").value.trim();
-    const errorBox = document.getElementById("security-error");
-    const successMsg = document.getElementById("security-success");
+        if (now < range.from && !next) {
+          next = range;
+        }
+      }
 
-    if (input === accessCode) {
-      errorBox.textContent = "";
-      successMsg.style.display = "block";
-      setTimeout(() => {{
-        document.getElementById("security-overlay").style.display = "none";
-      }}, 1500);
-    } else {
-      errorBox.textContent = "Invalid Code. Please try again.";
-      successMsg.style.display = "none";
-    }
-  }
-</script>
-<script>
-  const accessCode = "Ax9K-me$Q-%!7z-84&g-Rf2@";
-  function checkSecurityCode() {
-    const input = document.getElementById("security-code").value.trim();
-    if (input === accessCode) {
-      document.getElementById("security-overlay").style.display = "none";
-    } else {
-      document.getElementById("security-error").innerText = "Invalid Code. Please try again.";
-    }
-  }
-</script>
-<div class="header">
-<h1>Xtreme Aviator Predictor : 1xbet</h1>
-</div>
-<div class="info">
-<div class="glow-text">Live Time: <span id="live-time"></span></div>
-<div class="glow-text">Date: <span id="live-date"></span></div>
-</div>
-<div class="circle glow-text orbitron-text">
-<div id="next-signal"><span class="loading-text">Next Signal Loading</span><span class="next-signal-dots"></span></div>
-<div id="countdown">Next in: 00:00</div>
-</div>
-<div class="signal-box">Odd - 5× - 7× - 10× (Risk)</div>
-<div class="buttons">
-<a class="social-button whatsapp" href="#">WhatsApp</a>
-<a class="social-button telegram" href="#">Telegram</a>
-</div>
-<footer style="margin-top: 80px;">Design By: <a href="https://facebook.com/gdamith.lasantha">Damith Lasantha</a></footer>
-<script>
-  const schedule = [];
-  const hourlyTimes = [
-    { start: "02", end: "03" },
-    { start: "08", end: "09" },
-    { start: "14", end: "15" },
-    { start: "20", end: "22" },
-    { start: "28", end: "30" },
-    { start: "38", end: "39" },
-    { start: "41", end: "43" },
-    { start: "55", end: "57" }
-  ];
-  for (let hour = 0; hour < 24; hour++) {
-    const hourStr = hour.toString().padStart(2, '0');
-    hourlyTimes.forEach(t => {
-      schedule.push({
-        start: `${hourStr}:${t.start}`,
-        end: `${hourStr}:${t.end}`
-      });
-    });
-  }
+      signal.classList.remove("glow", "inactive-glow");
 
-  const alertSound = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
+      if (active) {
+        timeLabel.textContent = active.label;
+        timeLabel.classList.remove("loading");
+        signal.classList.add("glow");
 
-  function updateNextSignal() {
-    const now = new Date();
-    const minutes = now.getMinutes();
-    const hours = now.getHours();
-    const currentTimeStr = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0');
+        const label = active.label;
+        const minutesInLabel = label.match(/\d{2}:(\d{2})/g)?.map(t => t.split(':')[1]);
 
-    let next = null;
+        if (minutesInLabel && minutesInLabel.some(m => ["06", "36", "46"].includes(m))) {
+          animateTextChange("CASH OUT : 3×");
+        } else {
+          animateTextChange("CASH OUT : 5× | 6× | 7×");
+        }
 
-    for (let i = 0; i < schedule.length; i++) {
-      const startMin = parseInt(schedule[i].start.split(":")[1]);
-      const endMin = parseInt(schedule[i].end.split(":")[1]);
-      if (minutes >= startMin && minutes <= endMin && hours.toString().padStart(2, '0') === schedule[i].start.split(":")[0]) {
-        next = schedule[i];
-        break;
+      } else {
+        const pastRanges = allRanges.filter(r => r.to <= now);
+        const lastEnd = pastRanges.length ? pastRanges[pastRanges.length - 1].to : null;
+
+        if (lastEnd && (now - lastEnd) < 8000) {
+          timeLabel.textContent = "Next signal loading";
+          timeLabel.classList.add("loading");
+          signal.classList.add("inactive-glow");
+
+          animateTextChange("WAITING FOR SIGNAL...");
+        } else {
+          timeLabel.classList.remove("loading");
+          timeLabel.textContent = next ? next.label : "--:--";
+          signal.classList.add("inactive-glow");
+
+          animateTextChange("CASH OUT : 5× | 6× | 7×");
+        }
       }
     }
 
-    if (!next) {
-      next = schedule.find(s => {
-        const [h, m] = s.start.split(":").map(Number);
-        return h > hours || (h === hours && m > minutes);
-      }) || schedule[0];
-    }
-
-    const nextSignalElem = document.getElementById("next-signal");
-    const countdownElem = document.getElementById("countdown");
-    const displayString = `${next.start} / ${next.end}`;
-
-    const [currentHour, currentMin] = [
-      now.getHours().toString().padStart(2, '0'),
-      now.getMinutes().toString().padStart(2, '0')
-    ];
-
-    const parts = displayString.split(" / ");
-    let coloredDisplay = parts.map(p => {
-      const [h, m] = p.split(":");
-      return (h === currentHour && m === currentMin)
-        ? `<span class="green-glow">${p}</span>`
-        : p;
-    }).join(" / ");
-
-    if (!window.lastSignalTime || window.lastSignalTime !== displayString) {
-      window.lastSignalTime = displayString;
-      nextSignalElem.innerHTML = '<span class="loading-text">Next Signal Loading</span><span class="next-signal-dots"></span>';
-      setTimeout(() => {
-        nextSignalElem.innerHTML = coloredDisplay;
-        alertSound.play().catch(e => console.log("Sound not played:", e));
-      }, 3000);
-    } else {
-      nextSignalElem.innerHTML = coloredDisplay;
-    }
-
-    const [startHour, startMin] = next.start.split(":").map(Number);
-    const endTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), startHour, startMin + 3);
-    if (endTime < now) endTime.setDate(endTime.getDate() + 1);
-
-    const countdown = Math.max(0, Math.floor((endTime - now) / 1000));
-    const min = String(Math.floor(countdown / 60)).padStart(2, '0');
-    const sec = String(countdown % 60).padStart(2, '0');
-    countdownElem.textContent = `Next in: ${min}:${sec}`;
-    countdownElem.classList.toggle("flash", countdown <= 10);
-  }
-
-  function updateLiveTimeAndDate() {
-    const now = new Date();
-    document.getElementById("live-time").textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    document.getElementById("live-date").textContent = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
-  }
-
-  setInterval(() => {
-    updateLiveTimeAndDate();
-    updateNextSignal();
-  }, 1000);
-
-  updateLiveTimeAndDate();
-  updateNextSignal();
-</script>
+    setInterval(update, 1000);
+    update();
+  </script>
 </body>
 </html>
